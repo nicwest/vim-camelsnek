@@ -11,27 +11,14 @@ set cpo&vim
 "let g:loaded_camelsnek = 1
 
 " Private Functions: {{{1
-function! s:snek() abort
-  let l:s = @s
-  norm! gv"sd
-  let @s = camelsnek#snek(@s)
-  norm! "sP
-  let @s = l:s
-endfunction
 
-function! s:camel() abort
+function! s:repl(range, fn) range abort
   let l:s = @s
-  norm! gv"sd
-  let @s = camelsnek#camel(@s)
-  norm! "sP
-  let @s = l:s
-endfunction
-
-function! s:camelback() abort
-  let l:s = @s
-  norm! gv"sd
-  let @s = camelsnek#camelback(@s)
-  norm! "sP
+  if a:range == 0
+    exe "norm! \"sciw\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
+  else
+    exe "norm! gv\"sc\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
+  endif
   let @s = l:s
 endfunction
 
@@ -40,9 +27,9 @@ endfunction
 "nnoremap <Plug>CAMELSNEK2 :call SomeFunction()<CR>
 
 " Commands: {{{1
-command! -nargs=0 -range -bar Snek :call <SID>snek()
-command! -nargs=0 -range -bar Camel :call <SID>camel()
-command! -nargs=0 -range -bar CamelB :call <SID>camelback()
+command! -nargs=0 -range -bar Snek :call <SID>repl(<range>, 'snek')
+command! -nargs=0 -range -bar Camel :call <SID>repl(<range>, 'camel')
+command! -nargs=0 -range -bar CamelB :call <SID>repl(<range>, 'camelback')
 
 " Teardown: {{{1
 let &cpo = s:save_cpo

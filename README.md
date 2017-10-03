@@ -9,19 +9,9 @@ Usage
 -----
 
 ```viml
-:Snek         " converts the last selected text to snake case
-:Camel        " converts the last selected text to camel case
-:CamelB       " converts the last selected text to camelback case
-```
-
-Suggested Mappings
-------------------
-
-camelsnek doesn't bind anything by default. These are the suggested
-mappings:
-
-```viml
-"TBC
+:Snek         " converts snake case     ('foo bar' -> 'foo_bar')
+:Camel        " converts camel case     ('foo bar' -> 'FooBar')
+:CamelB       " converts camelback case ('foo bar' -> 'fooBar')
 ```
 
 Tests

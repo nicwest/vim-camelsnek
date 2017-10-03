@@ -6,19 +6,37 @@ function! s:suite.after_each() abort
 endfunction
 
 function! s:suite.snek() abort
-  norm! imy_func(SomeCamelCaseText)
-  exe "norm! $vib:Snek\<CR>"
-  call s:assert.equal(getline('.'), 'my_func(some_camel_case_text)')
+  norm! ithis is some text
+  exe "norm! $v^:Snek\<CR>"
+  call s:assert.equal(getline('.'), 'this_is_some_text')
 endfunction
 
 function! s:suite.camel() abort
-  norm! imy_func(some_camel_case_text)
-  exe "norm! $vib:Camel\<CR>"
-  call s:assert.equal(getline('.'), 'my_func(SomeCamelCaseText)')
+  norm! ithis is some text
+  exe "norm! $v^:Camel\<CR>"
+  call s:assert.equal(getline('.'), 'ThisIsSomeText')
 endfunction
 
 function! s:suite.camelback() abort
-  norm! imy_func(some_camel_case_text)
-  exe "norm! $vib:CamelB\<CR>"
-  call s:assert.equal(getline('.'), 'my_func(someCamelCaseText)')
+  norm! ithis is some text
+  exe "norm! $v^:CamelB\<CR>"
+  call s:assert.equal(getline('.'), 'thisIsSomeText')
+endfunction
+
+function! s:suite.snek_word() abort
+  norm! iLookIAmASnek
+  Snek
+  call s:assert.equal(getline('.'), 'look_i_am_a_snek')
+endfunction
+
+function! s:suite.camel_word() abort
+  norm! ilook_i_am_a_camel
+  Camel
+  call s:assert.equal(getline('.'), 'LookIAmACamel')
+endfunction
+
+function! s:suite.camelback_word() abort
+  norm! ilook_i_am_a_camel
+  CamelB
+  call s:assert.equal(getline('.'), 'lookIAmACamel')
 endfunction
