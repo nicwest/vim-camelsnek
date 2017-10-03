@@ -14,6 +14,10 @@ Usage
 :CamelB       " converts camelback case ('foo bar' -> 'fooBar')
 ```
 
+These commands will function from both normal and visual mode. When in normal
+mode the commands will attempt to operate on the word object under cursor,
+when in visual mode it will operate on the selection.
+
 Tests
 -----
 

@@ -12,7 +12,7 @@ set cpo&vim
 
 " Private Functions: {{{1
 
-function! s:repl(count, fn) range abort
+function! s:repl(count, fn) abort
   let l:s = @s
   if a:count == 0
     exe "norm! \"sciw\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
