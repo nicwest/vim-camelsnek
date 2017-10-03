@@ -23,6 +23,12 @@ function! s:suite.camelback() abort
   call s:assert.equal(getline('.'), 'thisIsSomeText')
 endfunction
 
+function! s:suite.kebab() abort
+  norm! ithis is some text
+  exe "norm! $v^:Kebab\<CR>"
+  call s:assert.equal(getline('.'), 'this-is-some-text')
+endfunction
+
 function! s:suite.snek_word() abort
   norm! iLookIAmASnek
   Snek
@@ -39,4 +45,10 @@ function! s:suite.camelback_word() abort
   norm! ilook_i_am_a_camel
   CamelB
   call s:assert.equal(getline('.'), 'lookIAmACamel')
+endfunction
+
+function! s:suite.camelback_word() abort
+  norm! iLookIAmAKebab
+  Kebab
+  call s:assert.equal(getline('.'), 'look-i-am-a-kebab')
 endfunction
