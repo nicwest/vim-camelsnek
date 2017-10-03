@@ -28,3 +28,15 @@ function! s:suite.snek() abort
   call s:assert.equal(camelsnek#snek('CAMELWithLeadingUpper'), 'camel_with_leading_upper')
 endfunction
 
+function! s:suite.kebab() abort
+  call s:assert.equal(camelsnek#kebab('noop'), 'noop')
+  call s:assert.equal(camelsnek#kebab('some plain text with spaces'), 'some-plain-text-with-spaces')
+  call s:assert.equal(camelsnek#kebab('collapse     whitespace-and    £$%&!  misc  chars'), 'collapse-whitespace-and-misc-chars')
+  call s:assert.equal(camelsnek#kebab('SomeCamelCaseText'), 'some-camel-case-text')
+  call s:assert.equal(camelsnek#kebab('someCamelBackCaseText'), 'some-camel-back-case-text')
+  call s:assert.equal(camelsnek#kebab('some_snek_case_text'), 'some-snek-case-text')
+  call s:assert.equal(camelsnek#kebab('CamelTEXTWithUpperSection'), 'camel-text-with-upper-section')
+  call s:assert.equal(camelsnek#kebab('CamelWithTrailingUPPER'), 'camel-with-trailing-upper')
+  call s:assert.equal(camelsnek#kebab('CAMELWithLeadingUpper'), 'camel-with-leading-upper')
+endfunction
+

@@ -24,6 +24,12 @@ function! camelsnek#snek(text) abort
   return tolower(l:text)
 endfunction
 
+function! camelsnek#kebab(text) abort
+  let l:text = camelsnek#snek(a:text)
+  let l:text = substitute(l:text, '_', '-', 'g')
+  return l:text
+endfunction
+
 " Teardown:{{{1
 let &cpo = s:save_cpo
 

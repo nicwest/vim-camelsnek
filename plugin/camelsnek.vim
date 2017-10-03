@@ -30,6 +30,7 @@ endfunction
 command! -nargs=0 -range -bar Snek :call <SID>repl(<count>, 'snek')
 command! -nargs=0 -range -bar Camel :call <SID>repl(<count>, 'camel')
 command! -nargs=0 -range -bar CamelB :call <SID>repl(<count>, 'camelback')
+command! -nargs=0 -range -bar Kebab :call <SID>repl(<count>, 'kebab')
 
 if exists('g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture')
   command! -nargs=0 -range -bar Snake :call <SID>repl(<count>, 'snek')
