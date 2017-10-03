@@ -6,6 +6,7 @@ function! s:suite.camel() abort
   call s:assert.equal(camelsnek#camel('some plain text with spaces'), 'SomePlainTextWithSpaces')
   call s:assert.equal(camelsnek#camel('collapse     whitespace-and    £$%&!  misc  chars'), 'CollapseWhitespaceAndMiscChars')
   call s:assert.equal(camelsnek#camel('some_snek_case_text'), 'SomeSnekCaseText')
+  call s:assert.equal(camelsnek#camel('some-kebab-case-text'), 'SomeKebabCaseText')
   call s:assert.equal(camelsnek#camel('someCamelBackCaseText'), 'SomeCamelBackCaseText')
 endfunction
 
