@@ -14,7 +14,7 @@ set cpo&vim
 
 function! s:repl(count, fn) abort
   let l:s = @s
-  if a:count == 0
+  if a:count < 1
     exe "norm! \"sciw\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
   else
     exe "norm! gv\"sc\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
