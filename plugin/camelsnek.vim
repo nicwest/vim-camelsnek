@@ -12,9 +12,9 @@ set cpo&vim
 
 " Private Functions: {{{1
 
-function! s:repl(range, fn) range abort
+function! s:repl(count, fn) range abort
   let l:s = @s
-  if a:range == 0
+  if a:count == 0
     exe "norm! \"sciw\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
   else
     exe "norm! gv\"sc\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
@@ -27,9 +27,9 @@ endfunction
 "nnoremap <Plug>CAMELSNEK2 :call SomeFunction()<CR>
 
 " Commands: {{{1
-command! -nargs=0 -range -bar Snek :call <SID>repl(<range>, 'snek')
-command! -nargs=0 -range -bar Camel :call <SID>repl(<range>, 'camel')
-command! -nargs=0 -range -bar CamelB :call <SID>repl(<range>, 'camelback')
+command! -nargs=0 -range -bar Snek :call <SID>repl(<count>, 'snek')
+command! -nargs=0 -range -bar Camel :call <SID>repl(<count>, 'camel')
+command! -nargs=0 -range -bar CamelB :call <SID>repl(<count>, 'camelback')
 
 " Teardown: {{{1
 let &cpo = s:save_cpo
