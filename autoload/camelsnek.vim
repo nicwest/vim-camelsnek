@@ -17,11 +17,11 @@ endfunction
 
 function! camelsnek#snek(text) abort
   let l:text = substitute(a:text, '\([^A-Za-z0-9]\)', ' ', 'g')
-  let l:text = substitute(l:text, '\(\L\)\(\l\|\d\)', ' \1\2', 'g')
-  let l:text = substitute(l:text, '\(\l\|\d\)\(\L\)', '\1 \2', 'g')
+  let l:text = substitute(l:text, '\([^a-z]\)\([a-z]\)', ' \1\2', 'g')
+  let l:text = substitute(l:text, '\([a-z]\)\([^a-z]\)', '\1 \2', 'g')
   let l:text = substitute(l:text, '^\s*\(.*\)\s*$', '\1', 'g')
   let l:text = substitute(l:text, '\s\+', '_', 'g')
-  return tolower(l:text)
+  return trim(tolower(l:text), '_')
 endfunction
 
 function! camelsnek#kebab(text) abort
