@@ -50,5 +50,5 @@ function! s:suite.kebab() abort
   call s:assert.equal(camelsnek#kebab('trailing space '), 'trailing-space')
   call s:assert.equal(camelsnek#kebab(' leading space'), 'leading-space')
   call s:assert.equal(camelsnek#kebab('numbers 123456 are tricky'), 'numbers-123456-are-tricky')
-  call s:assert.equal(camelsnek#snek('123 567 890'), '123-567-890')
+  call s:assert.equal(camelsnek#kebab('123 567 890'), '123-567-890')
 endfunction

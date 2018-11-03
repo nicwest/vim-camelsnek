@@ -19,9 +19,9 @@ function! camelsnek#snek(text) abort
   let l:text = substitute(a:text, '\([^A-Za-z0-9]\)', ' ', 'g')
   let l:text = substitute(l:text, '\([^a-z]\)\([a-z]\)', ' \1\2', 'g')
   let l:text = substitute(l:text, '\([a-z]\)\([^a-z]\)', '\1 \2', 'g')
-  let l:text = substitute(l:text, '^\s*\(.*\)\s*$', '\1', 'g')
+  let l:text = substitute(l:text, '^\s*\(.*\S\)\s*$', '\1', 'g')
   let l:text = substitute(l:text, '\s\+', '_', 'g')
-  return trim(tolower(l:text), '_')
+  return tolower(l:text)
 endfunction
 
 function! camelsnek#kebab(text) abort
