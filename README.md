@@ -5,7 +5,8 @@ vim-camelsnek
 
 Convert between camel and snek case
 
-[![asciicast](https://asciinema.org/a/140650.png)](https://asciinema.org/a/140650)
+![Usage](https://user-images.githubusercontent.com/8506829/95635740-dd389100-0a52-11eb-8c25-c6b215f9fc7f.gif)
+
 
 Usage
 -----
