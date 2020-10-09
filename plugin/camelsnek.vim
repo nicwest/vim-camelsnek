@@ -52,6 +52,7 @@ else
 endif
 
 command! -nargs=0 -range -bar Kebab :call <SID>repl(<count>, 'kebab')
+command! -nargs=0 -range -bar Screm :call <SID>repl(<count>, 'screm')
 
 
 " Teardown: {{{1

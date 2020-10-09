@@ -21,6 +21,7 @@ function! camelsnek#snek(text) abort
   let l:text = substitute(l:text, '\C\([a-z]\)\([^a-z]\)', '\1 \2', 'g')
   let l:text = substitute(l:text, '^\s*\(.*\S\)\s*$', '\1', 'g')
   let l:text = substitute(l:text, '\s\+', '_', 'g')
+  let l:text = substitute(l:text, '-', '_', 'g')
   return tolower(l:text)
 endfunction
 
@@ -28,6 +29,11 @@ function! camelsnek#kebab(text) abort
   let l:text = camelsnek#snek(a:text)
   let l:text = substitute(l:text, '_', '-', 'g')
   return l:text
+endfunction
+
+function! camelsnek#screm(text) abort
+  let l:text= camelsnek#snek(a:text)
+  return toupper(l:text)
 endfunction
 
 " Teardown:{{{1
