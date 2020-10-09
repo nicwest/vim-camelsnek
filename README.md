@@ -11,10 +11,11 @@ Usage
 -----
 
 ```viml
-:Snek         " converts to snake case     ('foo bar' -> 'foo_bar')
-:Camel        " converts to camel case     ('foo bar' -> 'FooBar')
-:CamelB       " converts to camelback case ('foo bar' -> 'fooBar')
-:Kebab        " converts to kebab case     ('foo bar' -> 'foo-bar')
+:Snek     " converts to snake case               ('foo bar' -> 'foo_bar')
+:Camel    " converts to camel case               ('foo bar' -> 'FooBar')
+:CamelB   " converts to camelback case           ('foo bar' -> 'fooBar')
+:Kebab    " converts to kebab case               ('foo bar' -> 'foo-bar')
+:Screm    " converts to screaming snake case     ('foo bar' -> 'FOO_BAR')
 ```
 
 These commands will function from both normal and visual mode. When in normal
