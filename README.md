@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/nicwest/vim-camelsnek.svg?branch=master)](https://travis-ci.org/nicwest/vim-camelsnek)
-
 vim-camelsnek
 =============
+
+[![Build Status](https://travis-ci.org/nicwest/vim-camelsnek.svg?branch=master)](https://travis-ci.org/nicwest/vim-camelsnek)
 
 Convert between camel and snek case
 
@@ -32,19 +32,19 @@ Settings
 " :CamelB -> :Camel
 let g:camelsnek_alternative_camel_commands = 1
 
-" This setting also changes the name of a command:
-" :Snek -> :Snake
-let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+" Are you a stick in the mud? This setting also changes the name of two commands:
+" :Snek  -> :Snake
+" :Screm -> :SnakeCaps
+let g:camelsnek_no_fun_allowed = 0
 ```
 
 Tests
 -----
 
-To run the tests pull the [themis test
-suite](https://github.com/thinca/vim-themis) (you don't have to install it but
-you can if you want).
+To run the tests pull the [themis test suite](https://github.com/thinca/vim-themis)
+(you don't have to install it but you can if you want).
 
-```
+```shell
 git clone git@github.com:thinca/vim-themis.git
 ./vim-themis/bin/themis --reporter dot test
 ```
@@ -52,7 +52,7 @@ git clone git@github.com:thinca/vim-themis.git
 Alternatively you can use the Makefile in the root dir, which will clone the
 dependencies and run the tests and linter.
 
-```
+```shell
 make init
 make test
 make lint

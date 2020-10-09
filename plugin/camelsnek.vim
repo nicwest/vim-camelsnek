@@ -15,8 +15,8 @@ if !exists('g:camelsnek_alternative_camel_commands')
   let g:camelsnek_alternative_camel_commands = 0
 end
 
-if !exists('g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture')
-  let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+if !exists('g:camelsnek_no_fun_allowed')
+  let g:camelsnek_no_fun_allowed = 0
 end
 
 " Private Functions: {{{1
@@ -45,14 +45,16 @@ else
   command! -nargs=0 -range -bar CamelB :call <SID>repl(<count>, 'camelback')
 endif
 
-if g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture
+command! -nargs=0 -range -bar Kebab :call <SID>repl(<count>, 'kebab')
+
+if g:camelsnek_no_fun_allowed
   command! -nargs=0 -range -bar Snake :call <SID>repl(<count>, 'snek')
+  command! -nargs=0 -range -bar SnakeCaps :call <SID>repl(<count>, 'screm')
 else
   command! -nargs=0 -range -bar Snek :call <SID>repl(<count>, 'snek')
+  command! -nargs=0 -range -bar Screm :call <SID>repl(<count>, 'screm')
 endif
 
-command! -nargs=0 -range -bar Kebab :call <SID>repl(<count>, 'kebab')
-command! -nargs=0 -range -bar Screm :call <SID>repl(<count>, 'screm')
 
 
 " Teardown: {{{1
