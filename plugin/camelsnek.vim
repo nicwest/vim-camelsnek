@@ -2,13 +2,6 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-" NOTE: this updates users' iskeyword global setting and may not be the right
-" solution. Add a file ~/.vim/after/ftplugin/camelsnek.vim with contents
-"   set iskeyword-=-
-" to remove this global change. I personally like it such that kebab can
-" change to snake case when in the middle of word, but YMMV.
-set iskeyword+=-
-
 " load guard
 " uncomment after plugin development.
 "if exists("g:loaded_camelsnek")
@@ -24,6 +17,18 @@ end
 
 if !exists('g:camelsnek_no_fun_allowed')
   let g:camelsnek_no_fun_allowed = 0
+end
+
+" Handles iskeyword update to make kebab editing easy.
+if !exists('g:camelsnek_iskeyword_override')
+  let g:camelsnek_iskeyword_override = 1
+end
+
+" NOTE: this updates users' iskeyword global setting and may not be the right
+" solution, hence the override variable to remove this global change.
+" I prefer that kebab can change to snake case when in the middle of word, but YMMV.
+if g:camelsnek_iskeyword_override
+  set iskeyword+=-
 end
 
 " Private Functions: {{{1
