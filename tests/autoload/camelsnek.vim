@@ -35,6 +35,24 @@ function! s:suite.snek() abort
   call s:assert.equal(camelsnek#snek(' leading space'), 'leading_space')
   call s:assert.equal(camelsnek#snek('numbers 123456 are tricky'), 'numbers_123456_are_tricky')
   call s:assert.equal(camelsnek#snek('123 567 890'), '123_567_890')
+  call s:assert.equal(camelsnek#snek('some-kebab-case-text'), 'some_kebab_case_text')
+endfunction
+
+function! s:suite.screm() abort
+  call s:assert.equal(camelsnek#screm('bep'), 'BEP')
+  call s:assert.equal(camelsnek#screm('some plain text with spaces'), 'SOME_PLAIN_TEXT_WITH_SPACES')
+  call s:assert.equal(camelsnek#screm('collapse     whitespace-and    £$%&!  misc  chars'), 'COLLAPSE_WHITESPACE_AND_MISC_CHARS')
+  call s:assert.equal(camelsnek#screm('SomeCamelCaseText'), 'SOME_CAMEL_CASE_TEXT')
+  call s:assert.equal(camelsnek#screm('someCamelBackCaseText'), 'SOME_CAMEL_BACK_CASE_TEXT')
+  call s:assert.equal(camelsnek#screm('CamelTEXTWithUpperSection'), 'CAMEL_TEXT_WITH_UPPER_SECTION')
+  call s:assert.equal(camelsnek#screm('CamelWithTrailingUPPER'), 'CAMEL_WITH_TRAILING_UPPER')
+  call s:assert.equal(camelsnek#screm('CAMELWithLeadingUpper'), 'CAMEL_WITH_LEADING_UPPER')
+  call s:assert.equal(camelsnek#screm('trailing space '), 'TRAILING_SPACE')
+  call s:assert.equal(camelsnek#screm(' leading space'), 'LEADING_SPACE')
+  call s:assert.equal(camelsnek#screm('numbers 123456 are tricky'), 'NUMBERS_123456_ARE_TRICKY')
+  call s:assert.equal(camelsnek#screm('123 567 890'), '123_567_890')
+  call s:assert.equal(camelsnek#screm('some-kebab-case-text'), 'SOME_KEBAB_CASE_TEXT')
+  call s:assert.equal(camelsnek#screm('just_a_loud_snek'), 'JUST_A_LOUD_SNEK')
 endfunction
 
 function! s:suite.kebab() abort

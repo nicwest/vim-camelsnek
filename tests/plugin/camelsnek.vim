@@ -41,16 +41,16 @@ function! s:suite.snek_word() abort
   call s:assert.equal(getline('.'), 'look_i_am_a_snek')
 endfunction
 
-function! s:suite.snek_word() abort
-  norm! ii_have_no_legs_and_i_must_screm
+function! s:suite.screm() abort
+  norm! ii_have_no_lips_and_i_must_screm
   Screm
-  call s:assert.equal(getline('.'), 'I_HAVE_NO_LEGS_AND_I_MUST_SCREM')
+  call s:assert.equal(getline('.'), 'I_HAVE_NO_LIPS_AND_I_MUST_SCREM')
 endfunction
 
-function! s:suite.snek_word() abort
-  norm! iiHaveNoLegsAndIMustScrem
+function! s:suite.screm() abort
+  norm! iiHaveNoLipsAndIMustScrem
   Screm
-  call s:assert.equal(getline('.'), 'I_HAVE_NO_LEGS_AND_I_MUST_SCREM')
+  call s:assert.equal(getline('.'), 'I_HAVE_NO_LIPS_AND_I_MUST_SCREM')
 endfunction
 
 function! s:suite.camel_word() abort
