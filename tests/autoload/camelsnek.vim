@@ -53,6 +53,7 @@ function! s:suite.screm() abort
   call s:assert.equal(camelsnek#screm('123 567 890'), '123_567_890')
   call s:assert.equal(camelsnek#screm('some-kebab-case-text'), 'SOME_KEBAB_CASE_TEXT')
   call s:assert.equal(camelsnek#screm('just_a_loud_snek'), 'JUST_A_LOUD_SNEK')
+  call s:assert.equal(camelsnek#screm('JUST_A_LOUD_SNEK'), 'JUST_A_LOUD_SNEK')
 endfunction
 
 function! s:suite.kebab() abort

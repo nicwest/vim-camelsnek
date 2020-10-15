@@ -61,7 +61,7 @@ command! -nargs=0 -range -bar Kebab :call <SID>repl(<count>, 'kebab')
 
 if g:camelsnek_no_fun_allowed
   command! -nargs=0 -range -bar Snake :call <SID>repl(<count>, 'snek')
-  command! -nargs=0 -range -bar SnakeCaps :call <SID>repl(<count>, 'screm')
+  command! -nargs=0 -range -bar Snakecaps :call <SID>repl(<count>, 'screm')
 else
   command! -nargs=0 -range -bar Snek :call <SID>repl(<count>, 'snek')
   command! -nargs=0 -range -bar Screm :call <SID>repl(<count>, 'screm')
