@@ -20,8 +20,7 @@ function! camelsnek#snek(text) abort
   let l:text = substitute(l:text, '\C\([^a-z]\)\([a-z]\)', ' \1\2', 'g')
   let l:text = substitute(l:text, '\C\([a-z]\)\([^a-z]\)', '\1 \2', 'g')
   let l:text = substitute(l:text, '^\s*\(.*\S\)\s*$', '\1', 'g')
-  let l:text = substitute(l:text, '\s\+', '_', 'g')
-  let l:text = substitute(l:text, '-', '_', 'g')
+  let l:text = substitute(l:text, '\(\s\+\|-\)', '_', 'g')
   return tolower(l:text)
 endfunction
 
