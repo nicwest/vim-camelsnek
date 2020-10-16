@@ -1,3 +1,6 @@
 vim-themis/
 vim-vimlparser/
 vim-vimlint/
+
+# exclude vim tags
+tags
