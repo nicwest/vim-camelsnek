@@ -15,8 +15,20 @@ if !exists('g:camelsnek_alternative_camel_commands')
   let g:camelsnek_alternative_camel_commands = 0
 end
 
-if !exists('g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture')
-  let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+if !exists('g:camelsnek_no_fun_allowed')
+  let g:camelsnek_no_fun_allowed = 0
+end
+
+" Handles iskeyword update to make kebab editing easy.
+if !exists('g:camelsnek_iskeyword_override')
+  let g:camelsnek_iskeyword_override = 1
+end
+
+" NOTE: this updates users' iskeyword global setting and may not be the right
+" solution, hence the override variable to remove this global change.
+" I prefer that kebab can change to snake case when in the middle of word, but YMMV.
+if g:camelsnek_iskeyword_override
+  set iskeyword+=-
 end
 
 " Private Functions: {{{1
@@ -45,14 +57,15 @@ else
   command! -nargs=0 -range -bar CamelB :call <SID>repl(<count>, 'camelback')
 endif
 
-if g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture
-  command! -nargs=0 -range -bar Snake :call <SID>repl(<count>, 'snek')
-else
-  command! -nargs=0 -range -bar Snek :call <SID>repl(<count>, 'snek')
-endif
-
 command! -nargs=0 -range -bar Kebab :call <SID>repl(<count>, 'kebab')
 
+if g:camelsnek_no_fun_allowed
+  command! -nargs=0 -range -bar Snake :call <SID>repl(<count>, 'snek')
+  command! -nargs=0 -range -bar Snakecaps :call <SID>repl(<count>, 'screm')
+else
+  command! -nargs=0 -range -bar Snek :call <SID>repl(<count>, 'snek')
+  command! -nargs=0 -range -bar Screm :call <SID>repl(<count>, 'screm')
+endif
 
 " Teardown: {{{1
 let &cpo = s:save_cpo

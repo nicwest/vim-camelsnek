@@ -4,9 +4,15 @@ set cpo&vim
 
 " Library Interface: {{{1
 function! camelsnek#camel(text) abort
-  let l:text = substitute(a:text, '[^A-Za-z0-9]', ' ', 'g')
-  let l:parts = split(l:text, '\s\+')
-  let l:text = join(map(l:parts, 'toupper(v:val[0]) . v:val[1:]'), '')
+  let l:parts = split(a:text, '[^A-Za-z0-9]\+')
+  " If list is of length 1, it's likely already in CamelCase.
+  " Otherwise, if it's less than 1, don't do anything.
+  if len(l:parts) == 1
+    return toupper(l:parts[0][0]) . l:parts[0][1:]
+  elseif len(l:parts) < 1
+    return a:text
+  endif
+  let l:text = join(map(l:parts, 'toupper(v:val[0]) . tolower(v:val[1:])'), '')
   return l:text
 endfunction
 
@@ -20,7 +26,7 @@ function! camelsnek#snek(text) abort
   let l:text = substitute(l:text, '\C\([^a-z]\)\([a-z]\)', ' \1\2', 'g')
   let l:text = substitute(l:text, '\C\([a-z]\)\([^a-z]\)', '\1 \2', 'g')
   let l:text = substitute(l:text, '^\s*\(.*\S\)\s*$', '\1', 'g')
-  let l:text = substitute(l:text, '\s\+', '_', 'g')
+  let l:text = substitute(l:text, '\(\s\+\|-\)', '_', 'g')
   return tolower(l:text)
 endfunction
 
@@ -28,6 +34,11 @@ function! camelsnek#kebab(text) abort
   let l:text = camelsnek#snek(a:text)
   let l:text = substitute(l:text, '_', '-', 'g')
   return l:text
+endfunction
+
+function! camelsnek#screm(text) abort
+  let l:text= camelsnek#snek(a:text)
+  return toupper(l:text)
 endfunction
 
 " Teardown:{{{1
