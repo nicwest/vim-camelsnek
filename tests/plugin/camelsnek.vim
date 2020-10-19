@@ -59,8 +59,20 @@ function! s:suite.camel_word() abort
   call s:assert.equal(getline('.'), 'LookIAmACamel')
 endfunction
 
+function! s:suite.camel_word() abort
+  norm! iLOOK_I_AM_A_CAMEL
+  Camel
+  call s:assert.equal(getline('.'), 'LookIAmACamel')
+endfunction
+
 function! s:suite.camelback_word() abort
   norm! ilook_i_am_a_camel
+  CamelB
+  call s:assert.equal(getline('.'), 'lookIAmACamel')
+endfunction
+
+function! s:suite.camelback_word() abort
+  norm! iLOOK_I_AM_A_CAMEL
   CamelB
   call s:assert.equal(getline('.'), 'lookIAmACamel')
 endfunction

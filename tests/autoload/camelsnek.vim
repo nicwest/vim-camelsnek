@@ -10,6 +10,7 @@ function! s:suite.camel() abort
   call s:assert.equal(camelsnek#camel('someCamelBackCaseText'), 'SomeCamelBackCaseText')
   call s:assert.equal(camelsnek#camel('trailing space '), 'TrailingSpace')
   call s:assert.equal(camelsnek#camel(' leading space'), 'LeadingSpace')
+  call s:assert.equal(camelsnek#camel('A_LOUD_SNEK'), 'ALoudSnek')
 endfunction
 
 function! s:suite.camelback() abort
@@ -20,6 +21,7 @@ function! s:suite.camelback() abort
   call s:assert.equal(camelsnek#camelback('someCamelBackCaseText'), 'someCamelBackCaseText')
   call s:assert.equal(camelsnek#camelback('trailing space '), 'trailingSpace')
   call s:assert.equal(camelsnek#camelback(' leading space'), 'leadingSpace')
+  call s:assert.equal(camelsnek#camelback('A_LOUD_SNEK'), 'aLoudSnek')
 endfunction
 
 function! s:suite.snek() abort
@@ -36,6 +38,7 @@ function! s:suite.snek() abort
   call s:assert.equal(camelsnek#snek('numbers 123456 are tricky'), 'numbers_123456_are_tricky')
   call s:assert.equal(camelsnek#snek('123 567 890'), '123_567_890')
   call s:assert.equal(camelsnek#snek('some-kebab-case-text'), 'some_kebab_case_text')
+  call s:assert.equal(camelsnek#snek('A_LOUD_SNEK'), 'a_loud_snek')
 endfunction
 
 function! s:suite.screm() abort
@@ -52,8 +55,8 @@ function! s:suite.screm() abort
   call s:assert.equal(camelsnek#screm('numbers 123456 are tricky'), 'NUMBERS_123456_ARE_TRICKY')
   call s:assert.equal(camelsnek#screm('123 567 890'), '123_567_890')
   call s:assert.equal(camelsnek#screm('some-kebab-case-text'), 'SOME_KEBAB_CASE_TEXT')
-  call s:assert.equal(camelsnek#screm('just_a_loud_snek'), 'JUST_A_LOUD_SNEK')
-  call s:assert.equal(camelsnek#screm('JUST_A_LOUD_SNEK'), 'JUST_A_LOUD_SNEK')
+  call s:assert.equal(camelsnek#screm('a_loud_snek'), 'A_LOUD_SNEK')
+  call s:assert.equal(camelsnek#screm('A_LOUD_SNEK'), 'A_LOUD_SNEK')
 endfunction
 
 function! s:suite.kebab() abort
@@ -70,4 +73,5 @@ function! s:suite.kebab() abort
   call s:assert.equal(camelsnek#kebab(' leading space'), 'leading-space')
   call s:assert.equal(camelsnek#kebab('numbers 123456 are tricky'), 'numbers-123456-are-tricky')
   call s:assert.equal(camelsnek#kebab('123 567 890'), '123-567-890')
+  call s:assert.equal(camelsnek#kebab('A_LOUD_SNEK'), 'a-loud-snek')
 endfunction
