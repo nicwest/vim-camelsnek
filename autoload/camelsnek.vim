@@ -5,9 +5,12 @@ set cpo&vim
 " Library Interface: {{{1
 function! camelsnek#camel(text) abort
   let l:parts = split(a:text, '[^A-Za-z0-9]\+')
-  " If no delimiters can be found, it's likely already in CamelCase.
-  if len(l:parts) <= 1
+  " If list is of length 1, it's likely already in CamelCase.
+  " Otherwise, if it's less than 1, don't do anything.
+  if len(l:parts) == 1
     return toupper(l:parts[0][0]) . l:parts[0][1:]
+  elseif len(l:parts) < 1
+    return a:text
   endif
   let l:text = join(map(l:parts, 'toupper(v:val[0]) . tolower(v:val[1:])'), '')
   return l:text

@@ -12,6 +12,17 @@ function! s:suite.snek() abort
 endfunction
 
 function! s:suite.camel() abort
+  exe "norm! $v^:Camel\<CR>"
+  call s:assert.equal(getline('.'), '')
+endfunction
+
+function! s:suite.camel() abort
+  norm! i
+  exe "norm! $v^:Camel\<CR>"
+  call s:assert.equal(getline('.'), ' ')
+endfunction
+
+function! s:suite.camel() abort
   norm! ithis is some text
   exe "norm! $v^:Camel\<CR>"
   call s:assert.equal(getline('.'), 'ThisIsSomeText')

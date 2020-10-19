@@ -2,6 +2,7 @@ let s:suite = themis#suite('autoload')
 let s:assert = themis#helper('assert')
 
 function! s:suite.camel() abort
+  call s:assert.equal(camelsnek#camel('    '), '    ')
   call s:assert.equal(camelsnek#camel('noop'), 'Noop')
   call s:assert.equal(camelsnek#camel('some plain text with spaces'), 'SomePlainTextWithSpaces')
   call s:assert.equal(camelsnek#camel('collapse     whitespace-and    £$%&!  misc  chars'), 'CollapseWhitespaceAndMiscChars')
@@ -14,6 +15,7 @@ function! s:suite.camel() abort
 endfunction
 
 function! s:suite.camelback() abort
+  call s:assert.equal(camelsnek#camel('    '), '    ')
   call s:assert.equal(camelsnek#camelback('noop'), 'noop')
   call s:assert.equal(camelsnek#camelback('some plain text with spaces'), 'somePlainTextWithSpaces')
   call s:assert.equal(camelsnek#camelback('collapse     whitespace-and    £$%&!  misc  chars'), 'collapseWhitespaceAndMiscChars')
