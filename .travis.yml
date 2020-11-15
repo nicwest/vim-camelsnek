@@ -1,9 +1,0 @@
-language: viml
-
-before_script:
-    - vim --version
-    - make init
-
-script:
-    - make test
-    - make lint
