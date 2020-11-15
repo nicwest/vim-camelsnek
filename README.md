@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/nicwest/vim-camelsnek.svg?branch=master)](https://travis-ci.org/nicwest/vim-camelsnek)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/nicwest/vim-camelsnek/test)
 
 vim-camelsnek
 =============
