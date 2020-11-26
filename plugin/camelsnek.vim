@@ -21,7 +21,7 @@ end
 
 " Handles iskeyword update to make kebab editing easy.
 if !exists('g:camelsnek_iskeyword_override')
-  let g:camelsnek_iskeyword_override = 1
+  let g:camelsnek_iskeyword_override = 0
 end
 
 " NOTE: this updates users' iskeyword global setting and may not be the right
