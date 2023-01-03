@@ -37,35 +37,13 @@ Settings
 " :CamelB -> :Camel
 let g:camelsnek_alternative_camel_commands = 1
 
-" Are you a stick in the mud? This setting also changes the name of two commands:
+" This setting also changes the name of two commands:
 " :Snek  -> :Snake
 " :Screm -> :Snakecaps
-let g:camelsnek_no_fun_allowed = 0
-```
+let g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture = 0
+let g:camelsnek_no_fun_allowed = 0 " Shorter alias for the above.
 
-### Caveats
 
-This plugin appends to your `iskeyword` global setting by default in order to make
-editing kebab-case easier— in normal mode with this setting, you can place your cursor
-over a kebab-case word and convert it to any other available case. This may not be
-preferable if you don't like treating hyphens as part of words.
-
-Other plugins or settings like `set nocompatible` may interfere with your `iskeyword`
-setting. Be sure to load/set these before including _vim-camelsnek_ with your
-plugin manager. Try `:verbose set iskeyword?` to find these if you're having trouble.
-
-If you don't want this setting, there's a variable for that:
-
-```viml
-" Set this to prevent editing global keyword matching rules.
-" With no override:
-"   :echo &iskeyword
-"   @,48-57,_,192-255,-
-"
-" With override set to 0:
-"   :echo &iskeyword
-"   @,48-57,_,192-255
-let g:camelsnek_iskeyword_override = 0
 ```
 
 Tests
