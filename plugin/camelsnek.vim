@@ -19,28 +19,23 @@ if !exists('g:camelsnek_no_fun_allowed')
   let g:camelsnek_no_fun_allowed = 0
 end
 
-" Handles iskeyword update to make kebab editing easy.
-if !exists('g:camelsnek_iskeyword_override')
-  let g:camelsnek_iskeyword_override = 0
-end
-
-" NOTE: this updates users' iskeyword global setting and may not be the right
-" solution, hence the override variable to remove this global change.
-" I prefer that kebab can change to snake case when in the middle of word, but YMMV.
-if g:camelsnek_iskeyword_override
-  set iskeyword+=-
-end
-
 " Private Functions: {{{1
 
 function! s:repl(count, fn) abort
   let l:s = @s
+
+  " Save iskeyword such that we can restore it later.
+  " This makes editing kebab-case much more convenient.
+  let save_iskeyword = &iskeyword
+  set iskeyword+=-
+
   if a:count < 1
     exe "norm! \"sciw\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
   else
     exe "norm! gv\"sc\<C-R>=camelsnek#" . a:fn ."(@s)\<CR>"
   endif
   let @s = l:s
+  let &iskeyword=save_iskeyword
 endfunction
 
 " Maps: {{{1
