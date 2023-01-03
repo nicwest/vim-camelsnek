@@ -15,8 +15,10 @@ if !exists('g:camelsnek_alternative_camel_commands')
   let g:camelsnek_alternative_camel_commands = 0
 end
 
-if !exists('g:camelsnek_no_fun_allowed')
+if !exists('g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture') && !exists('g:camelsnek_no_fun_allowed')
   let g:camelsnek_no_fun_allowed = 0
+elseif exists('g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture') && g:camelsnek_i_am_an_old_fart_with_no_sense_of_humour_or_internet_culture == 1
+  let g:camelsnek_no_fun_allowed = 1
 end
 
 " Private Functions: {{{1
